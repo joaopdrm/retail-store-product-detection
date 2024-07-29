@@ -1,3 +1,4 @@
+#utilizar para o fine tuning
 train: path/to/your/train/images
 val: path/to/your/val/images
 
