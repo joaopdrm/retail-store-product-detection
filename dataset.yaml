@@ -1,0 +1,5 @@
+train: path/to/your/train/images
+val: path/to/your/val/images
+
+nc: 2  # Número de classes (exemplo)
+names: ['class1', 'class2']  # Nomes das classes
