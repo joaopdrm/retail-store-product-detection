@@ -41,14 +41,24 @@ def crop_and_save_objects(json_data, output_folder):
                 feature_id = annotation['feature_id']
                 cropped_image.save(os.path.join(class_folder, f'{feature_id}.jpg'))
 
-# Exemplo de uso
-json_file_path = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/teste.ndjson'
-output_folder = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/data'
+# Função para processar um arquivo JSON e iterar sobre todas as imagens
+def process_json_file(json_file_path, output_folder):
+    # Lê o arquivo JSON
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
 
-# Lê o arquivo JSON
-with open(json_file_path, 'r') as file:
-    data = json.load(file)
+    # Itera sobre as imagens no JSON
+    if 'images' in data:
+        for image_data in data['images']:
+            crop_and_save_objects(image_data, output_folder)
+    else:
+        # Se o JSON não contém uma lista de imagens, processa como antes
+        crop_and_save_objects(data, output_folder)
+
+# Exemplo de uso
+json_file_path = 'caminho/para/seu/arquivo.json'
+output_folder = 'dataset'
 
 # Chama a função para processar o JSON e criar o dataset
-crop_and_save_objects(data, output_folder)
+process_json_file(json_file_path, output_folder)
 
