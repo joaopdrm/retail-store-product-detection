@@ -4,7 +4,6 @@ from PIL import Image
 from io import BytesIO
 import os
 
-# Função para recortar e salvar os objetos em pastas separadas por classe
 def crop_and_save_objects(json_data, output_folder):
     # Certifica-se de que a pasta de saída existe
     if not os.path.exists(output_folder):
@@ -41,7 +40,6 @@ def crop_and_save_objects(json_data, output_folder):
                 feature_id = annotation['feature_id']
                 cropped_image.save(os.path.join(class_folder, f'{feature_id}.jpg'))
 
-# Função para processar um arquivo JSON e iterar sobre todas as imagens
 def process_json_file(json_file_path, output_folder):
     # Lê o arquivo JSON
     with open(json_file_path, 'r') as file:
@@ -56,8 +54,8 @@ def process_json_file(json_file_path, output_folder):
         crop_and_save_objects(data, output_folder)
 
 # Exemplo de uso
-json_file_path = 'caminho/para/seu/arquivo.json'
-output_folder = 'dataset'
+json_file_path = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/teste.ndjson'
+output_folder = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/data'
 
 # Chama a função para processar o JSON e criar o dataset
 process_json_file(json_file_path, output_folder)
