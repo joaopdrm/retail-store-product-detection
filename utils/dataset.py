@@ -106,8 +106,8 @@ def process_json_file(json_file_path, output_folder, split_ratio=0.8):
         crop_and_save_objects(data, output_folder, split_ratio)
 
 # Exemplo de uso
-json_file_path = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/teste.ndjson'
-output_folder = '/home/joaopdrm/projetos_pessoais/retail-store-product-detection/data'
+json_file_path = 'caminho/para/seu/json' #deve estar junto das imagens
+output_folder = 'caminh/para/pasta/de/output'
 
 # Chama a função para processar o JSON, criar o dataset e dividir em treino e validação
 process_json_file(json_file_path, output_folder)
